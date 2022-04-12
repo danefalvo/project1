@@ -19,6 +19,7 @@ step "StepTemplate2" {
     }
 
     action {
+        is_disabled = true
         properties = {
             AParameter = <<-EOT
                 Multi
