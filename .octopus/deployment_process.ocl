@@ -1,0 +1,33 @@
+step "StepTemplate1" {
+    properties = {
+        Octopus.Action.TargetRoles = "Role1"
+    }
+
+    action {
+        properties = {
+            Octopus.Action.Template.Id = "ActionTemplates-1"
+            Octopus.Action.Template.Version = "1"
+            randome = "hello"
+        }
+        worker_pool_variable = ""
+    }
+}
+
+step "StepTemplate2" {
+    properties = {
+        Octopus.Action.TargetRoles = "Role1"
+    }
+
+    action {
+        properties = {
+            AParameter = <<-EOT
+                Multi
+                Line
+            EOT
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Template.Id = "ActionTemplates-2"
+            Octopus.Action.Template.Version = "0"
+        }
+        worker_pool_variable = ""
+    }
+}
