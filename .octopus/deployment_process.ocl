@@ -1,13 +1,15 @@
-step "StepTemplate1" {
+step "Run a Script" {
     properties = {
         Octopus.Action.TargetRoles = "Role1"
     }
 
     action {
+        action_type = "Octopus.Script"
         properties = {
-            Octopus.Action.Template.Id = "ActionTemplates-1"
-            Octopus.Action.Template.Version = "1"
-            randome = "hello"
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Script.ScriptBody = "write-host \"hi\""
+            Octopus.Action.Script.ScriptSource = "Inline"
+            Octopus.Action.Script.Syntax = "PowerShell"
         }
         worker_pool_variable = ""
     }
